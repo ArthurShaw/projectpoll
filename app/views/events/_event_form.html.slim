@@ -1,0 +1,31 @@
+      = render 'shared/errors_explanation', object: f.object
+      div.form-group
+        div.input-group.form-control
+          = f.label :title
+          = f.text_field :title, class: "form-control", placeholder: "Enter the title"
+
+      div.form-group
+        div.input-group.form-control
+          = f.label :description
+          = f.text_area :description, class: "form-control", placeholder: "Enter the description"
+
+      div.form-group
+        div.input-group.form-control.date#datetimepicker1
+          = f.text_field :date, class: "form-control", id: "datetimepicker1"
+          span.input-group-addon
+            span.glyphicon.glyphicon-calendar
+
+      div.form-group
+        div.form-control.input-group
+          = f.label :event_type
+          = f.select :event_type, Event.event_types, {}, class: "form-control" 
+
+
+      = f.submit @action, class: "btn btn-primary"
+
+      javascript:
+        $(function () {
+          $('#datetimepicker1').datetimepicker({
+	    format: "DD-MM-YYYY HH:mm"
+          });
+        });

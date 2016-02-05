@@ -1,0 +1,14 @@
+= form_for @vote do |f|
+  = render 'shared/errors_explanation', object: f.object
+  div.form-group
+    div.input-group.form-control.field
+      = f.label :title
+      = f.text_field :title, class: "form-control", placeholder: "Enter the poll title"
+
+  div#answers
+    = f.fields_for :answers do |answer|
+      = render 'answer_fields', f: answer
+    div.links
+      = link_to_add_association "Add answer", f, :answers, class: "btn btn-default add-button" 
+  = f.hidden_field :event_id, value: params[:event_id] if params[:event_id]
+  = f.submit @action, class: "btn btn-primary"

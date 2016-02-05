@@ -1,0 +1,19 @@
+div.row
+  div.col-xs-3.col-xs-offset-3
+    h1 = @event.title
+    p = "Description: #{@event.description}" if @event.description
+    p = "Type: #{@event.event_type}"
+    p = "Date: #{@event.date.strftime('%d/%m/%Y %H:%M')}"if @event.date
+    
+    div.btn-group
+      = link_to "Back", events_path, class: "btn btn-default"
+      = link_to "Edit", edit_event_path(@event), class: "btn btn-default"
+      = link_to "Delete", event_path(@event), method: :delete, class: "btn btn-default"
+  div.col-xs-3.events
+    h1 Event's polls:
+    - @event.votes.each do |vote|
+      p = link_to vote.title, vote_path(vote)
+      p = link_to "Make vote", new_user_choice_path(vote_id: vote.id), class: "btn btn-default"
+    p = link_to "New poll", new_vote_path(event_id: @event.id), class: "btn btn-default"
+
+

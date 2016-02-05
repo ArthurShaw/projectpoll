@@ -1,0 +1,11 @@
+div.row
+  div.col-xs-6.col-xs-offset-3
+    h3 = @vote.title
+
+    - @vote.answers.each do |answer|
+      p = answer.title + " | " + answer.user_choices.count.to_s
+    
+    div.links
+      = link_to "Back to event", event_path(@event.id), class: "btn btn-default"
+      = link_to "Edit", edit_vote_path(@vote, event_id: @event.id), class: "btn btn-default"
+      = link_to "Delete", vote_path(@vote), method: :delete, class: "btn btn-default"

@@ -1,0 +1,7 @@
+div.row
+  div.col-sx-6.col-xs-offset-3
+    h1 All polls
+    ul
+      - @votes.each do |vote|
+        li = link_to vote.title, vote_path(vote)
+    p = link_to "New poll", new_vote_path

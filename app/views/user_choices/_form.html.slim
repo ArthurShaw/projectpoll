@@ -1,0 +1,9 @@
+div.form-group
+  = form_for @choice do |f|
+    - @vote.answers.each do |answer|
+      div.input-group.form-control
+        = f.radio_button :answer_id, answer.id
+        = " #{answer.title}"
+      br
+    = f.hidden_field :vote_id, value: @vote.id
+    = f.submit "Vote", class: "btn btn-primary"

@@ -1,0 +1,5 @@
+div.row
+  h2 Edit event
+  = form_for @event do |f|
+    div.col-xs-6.col-xs-offset-3
+      = render 'event_form', f: f

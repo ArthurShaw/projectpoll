@@ -38,6 +38,7 @@ gem 'autoprefixer-rails'
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
 gem 'cocoon'
+gem 'paperclip'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

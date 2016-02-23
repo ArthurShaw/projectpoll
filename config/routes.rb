@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   
   root "static_pages#home"
 
+  resources :users, :only => [:show]
+  get 'profile' => 'users#profile', as: 'profile'
+
   resources :events, :votes, :user_choices
 
   get "/users/auth/vkontakte/callback", to: "omniauth_callbacks#vkontakte"

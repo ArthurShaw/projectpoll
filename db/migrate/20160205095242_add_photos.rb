@@ -4,6 +4,6 @@ class AddPhotos < ActiveRecord::Migration
   end
 
   def down
-    remove_attachment :users, :picture
+    remove_attachment :events, :picture
   end
 end
